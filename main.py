@@ -1,3 +1,6 @@
+# A step by step example of using SVM for students who are new to ML
+# Author: Wahab Hamou-Lhadj
+
 import pandas as pd
 from sklearn import svm
 from sklearn import metrics
@@ -42,6 +45,7 @@ def start():
     print("Precision: ", metrics.precision_score(y_test, y_pred))
     print("Recall: ", metrics.recall_score(y_test, y_pred))
     print("F1_Score: ", metrics.f1_score(y_test, y_pred))
+    print("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
 
 # Start project
 if __name__ == '__main__':
