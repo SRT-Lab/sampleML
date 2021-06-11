@@ -1,5 +1,5 @@
 # A step by step example of using SVM for students who are new to ML
-# Author: Wahab Hamou-Lhadj
+# SRT Lab
 
 import pandas as pd
 from sklearn import svm
@@ -15,7 +15,7 @@ def start():
 
     # 2. Data preparation and preprocessing
 
-    # 2.1 Converting categorical data into numerical data
+    # 2.1 Converting categorical data into numerical data. Note that I am treating the categorical features as nominal.
     le = LabelEncoder()
     proc_dataset = dataset.apply(le.fit_transform)
 
