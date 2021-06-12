@@ -35,11 +35,11 @@ def start():
     X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.3)
 
     # 4. Building a training model using svm (other classifiers can be used too)
-    clf = svm.SVC(kernel='linear')  # Linear Kernel
-    clf.fit(X_train, y_train)
+    model = svm.SVC(kernel='linear')  # Linear Kernel
+    model.fit(X_train, y_train)
 
     # 5. Testing the model
-    y_pred = clf.predict(X_test)
+    y_pred = model.predict(X_test)
 
     # 6. Outputting test results
     tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
