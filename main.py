@@ -1,4 +1,5 @@
 # A step by step example on using SVM with sklearn
+# Authors: Wahab Hamou-Lhadj, Fatima AitMahammed, Mohammed Shehab
 # SRT Lab
 
 import pandas as pd
@@ -8,7 +9,6 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
-
 def start():
     # 1. Data loading
     dataset = pd.read_csv("data/weather.csv")
@@ -16,8 +16,8 @@ def start():
     # 2. Data preparation and preprocessing
 
     # 2.1 Converting categorical data into numerical data.
-    # Note that I am treating the categorical features as nominal.
-    # You can also convert all attributes with apply(le.fit_transform).
+    # Note that we are treating the categorical features as nominal features.
+    # You can also convert all attributes using apply(le.fit_transform).
 
     le = LabelEncoder()
     dataset['outlook'] = le.fit_transform(dataset['outlook'])
@@ -30,12 +30,12 @@ def start():
     features = dataset.drop(['play'], axis=1)
     targets = dataset['play']
 
-    # 3. Data spliting
+    # 3. Spliting data
     # Here the data is plit into 70% training and 30% testing. By varying the test_size, you can change the training/testing ratio
     X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.3)
 
     # 4. Building a training model using svm (other classifiers can be used too)
-    clf = svm.SVC(kernel='linear')  # Linear Kernel; other kernels can be used too
+    clf = svm.SVC(kernel='linear')  # Linear Kernel
     clf.fit(X_train, y_train)
 
     # 5. Testing the model
