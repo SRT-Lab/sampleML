@@ -1,4 +1,4 @@
-# A step by step example of using SVM for students who are new to ML
+# A step by step example on using SVM with sklearn
 # SRT Lab
 
 import pandas as pd
