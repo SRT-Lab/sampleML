@@ -15,17 +15,24 @@ def start():
 
     # 2. Data preparation and preprocessing
 
-    # 2.1 Converting categorical data into numerical data. Note that I am treating the categorical features as nominal.
+    # 2.1 Converting categorical data into numerical data.
+    # Note that I am treating the categorical features as nominal.
+    # You can also convert all attributes with apply(le.fit_transform).
+
     le = LabelEncoder()
-    proc_dataset = dataset.apply(le.fit_transform)
+    dataset['outlook'] = le.fit_transform(dataset['outlook'])
+    dataset['temperature'] = le.fit_transform(dataset['temperature'])
+    dataset['humidity'] = le.fit_transform(dataset['humidity'])
+    dataset['windy'] = le.fit_transform(dataset['windy'])
+    dataset['play'] = le.fit_transform(dataset['play'])
 
     # 2.2 Creating features and target labels
-    features = proc_dataset.drop(['play'], axis=1)
-    targets = proc_dataset['play']
+    features = dataset.drop(['play'], axis=1)
+    targets = dataset['play']
 
     # 3. Data spliting
     # Here the data is plit into 70% training and 30% testing. By varying the test_size, you change the training/testing ratio
-    X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.3)
+    X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.2)
 
     # 4. Building a training model using svm (other classifier can be used too)
     clf = svm.SVC(kernel='linear')  # Linear Kernel; other kernels can be used too
