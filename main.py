@@ -32,7 +32,7 @@ def start():
 
     # 3. Data spliting
     # Here the data is plit into 70% training and 30% testing. By varying the test_size, you change the training/testing ratio
-    X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.2)
+    X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.3)
 
     # 4. Building a training model using svm (other classifier can be used too)
     clf = svm.SVC(kernel='linear')  # Linear Kernel; other kernels can be used too
